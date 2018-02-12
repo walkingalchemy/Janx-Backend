@@ -1,15 +1,17 @@
-class ChatSessionsController < ApplicationController
+class Api::V1::ChatSessionsController < ApplicationController
 
   def index
     chats = ChatSession.all
-    render json: @chats
+    render json: chats
   end
 
   def show
+    byebug
     chat = ChatSession.find(id: params[:id])
     render json: {
       id: chat.id,
-      title: chat.title
+      title: chat.title,
+      transcripts: Transcript.select {|script| script.chat_session_id == chat.id}
     }
   end
 
