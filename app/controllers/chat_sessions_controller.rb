@@ -28,5 +28,6 @@ class ChatSessionsController < ApplicationController
 
   def destroy
 
+
   end
 end
