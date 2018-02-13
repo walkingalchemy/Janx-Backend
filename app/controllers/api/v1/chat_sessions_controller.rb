@@ -32,7 +32,7 @@ class Api::V1::ChatSessionsController < ApplicationController
   end
 
   def destroy
-
-
+    chat = ChatSession.find(params[:id])
+    chat.destroy()
   end
 end
