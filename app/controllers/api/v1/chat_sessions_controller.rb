@@ -10,11 +10,14 @@ class Api::V1::ChatSessionsController < ApplicationController
   end
 
   def show
-    chat = ChatSession.find(id: params[:id])
+    chat = ChatSession.find(params[:id])
+    transcripts = Transcript.select {|script| script.chat_session_id == chat.id}
+    users = transcripts.map{|script| User.find(script.user_id)}.uniq
     render json: {
       id: chat.id,
       title: chat.title,
-      transcripts: Transcript.select {|script| script.chat_session_id == chat.id}
+      transcripts: transcripts,
+      users: users
     }
   end
 

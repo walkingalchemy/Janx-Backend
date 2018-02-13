@@ -1,12 +1,18 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
-    user = User.new(username: params[:username], password_digest: params[:password], bio: params[:bio])
+    user = User.find_by(username: params[:username])
 
-    if user.save
+
+    if user
       render json: user
     else
-      render json: {error: 'Could not save user Im so sorry'}
+      user = User.new(username: params[:username], password_digest: params[:password], bio: params[:bio])
+      if user.save
+        render json: user
+      else
+        render json: {error: 'user not created'}
+      end
     end
   end
 
