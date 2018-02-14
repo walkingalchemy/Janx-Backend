@@ -3,9 +3,11 @@ class Api::V1::ChatSessionsController < ApplicationController
   def index
     chats = ChatSession.all
     transcripts = Transcript.all
+    users = transcripts.map{|script| User.find(script.user_id)}.uniq
     render json: {
       chats: chats,
-      transcripts: transcripts
+      transcripts: transcripts,
+      users: users
     }
   end
 
