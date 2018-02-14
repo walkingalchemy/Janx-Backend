@@ -39,5 +39,9 @@ class Api::V1::ChatSessionsController < ApplicationController
   def destroy
     chat = ChatSession.find(params[:id])
     chat.destroy()
+    ActionCable.server.broadcast 'chat_channel', {
+      status: 'deleted',
+      id: chat.id
+    }
   end
 end

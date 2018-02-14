@@ -2,7 +2,6 @@ class Api::V1::TranscriptsController < ApplicationController
 
   def create
     transcript = Transcript.new(content: params[:content], chat_session_id: params[:chat_id], user_id: params[:user][:id])
-
     chat_session = ChatSession.find(params[:chat_id])
     user = User.find(params[:user][:id])
     if transcript.save
