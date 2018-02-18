@@ -9,7 +9,7 @@ Janx is a demo using WebSockets to allow real time simultaneous messaging betwee
 
 This project uses [Rails 5.1.4](http://weblog.rubyonrails.org/2017/8/24/Rails-5-1-4-rc1-and-5-0-6-rc1-released/) and its WebSockets library [ActionCable](http://guides.rubyonrails.org/action_cable_overview.html).  It also uses the [Postgres](https://www.postgresql.org/) database. Go check them out if you don't have them locally installed. 
 
-Fork and/or clone the repository down then run:
+Fork and/or clone the repository down then from within the top level directory run:
 
 ```shell
 rails db:create
@@ -22,7 +22,17 @@ rails s
 ```
 to get it serving to your local host.
 
-You can also optionally use [ngrok](https://ngrok.com/) to create a URL to your local host and allow multiple clients to test functionality.  Unfortunately ngrok does not support WebSockets fully so each computer accessing the URL will have to have the frontend client installed locally.
+The frontend client is set by default to point to a backend running on localhost:3000 which is the Rails server default if nothing else is running.
+
+If you need to run the Rails server on another port you can instead use
+
+```shell
+  rails s -p <your port>
+```
+and then change the API_ROOT and API_WS_ROOT to reflect that in /src/constants of the frontend client.
+
+You can also optionally use [ngrok](https://ngrok.com/) to create a URL to your local host and allow multiple clients to test functionality.  Follow the simple [ngrok setup](https://ngrok.com/docs/2) to configure
+Unfortunately ngrok does not support WebSockets fully so each computer accessing the URL will have to have the frontend client installed locally.
 
 In either case, from there you should install the [Janx-Frontend](https://github.com/walkingalchemy/Janx-Frontend) repository to see the full application from your browser.
 
