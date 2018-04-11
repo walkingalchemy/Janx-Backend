@@ -6,7 +6,7 @@
 Janx is a demo using WebSockets to allow real time simultaneous messaging between users.  This is the repository for the Ruby on Rails backend that serves the HTTP and WS APIs.  The frontend client repository resides at: [Janx-Frontend](https://github.com/walkingalchemy/Janx-Frontend)
 
 # Demo
-<a href="https://www.youtube.com/watch?v=6lECuoTIYco" target="_blank"><img src="http://img.youtube.com/vi/6lECuoTIYco/0.jpg" 
+<a href="https://youtu.be/0X_XVAkt6LI" target="_blank"><img src="http://img.youtube.com/vi/0X_XVAkt6LI/0.jpg" 
 alt="Janx Thumbnail" width="240" height="180" border="10" /></a>
 
 ## Installing / Getting started
